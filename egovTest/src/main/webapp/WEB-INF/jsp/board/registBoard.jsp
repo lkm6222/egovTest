@@ -24,7 +24,7 @@
 <script type="text/javascript">
 	$(document).ready(function(){
 		$("#btn_save").on('click', function(){
-
+			fn_save();
 		});
 		
 		$("#btn_list").on('click', function(){
@@ -34,13 +34,13 @@
 	
 	function fn_save(){
 		var frm = $("#saveFrm").serialize();
-		console.log(frm);
+		
 		$.ajax({
-		    url: '/board/saveBoard.do',
-		    method: 'post',
+		    url : '/board/saveBoard.do',
+		    method : 'post',
 		    data : frm,
 		    dataType : 'json',
-		    success: function (data, status, xhr) {
+		    success : function (data, status, xhr) {
 		    	if(data.resultChk > 0){
 		    		alert("저장되었습니다.");
 		    		location.href="/board/boardList.do";
